@@ -31,7 +31,7 @@ a:focus {
   width: 100%;
 }
 
-.appItemEdit {
+.app-item-edi {
   height: 55px;
   background-color: lightyellow;
 }
@@ -49,7 +49,7 @@ a#clear-comp {
   color: #945047;
 }
 
-.normalView {
+.normal-view {
   width: 100%;
 }
 
