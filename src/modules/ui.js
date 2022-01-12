@@ -105,7 +105,7 @@ export default class UI {
   }
 
   static changeLiToEditMode(li) {
-    const lisChildren = li.children
+    const lisChildren = li.children;
     // change clases of divs
     const normalView = lisChildren[0];
     let classesNV = normalView.className;
@@ -128,6 +128,14 @@ export default class UI {
     todos.splice(index, 1);
     // update indexes
     todos.forEach((todo, index) => { todo.index = index; });
+    Store.setTasks(todos);
+    // repopulates list
+    this.displayTasks();
+  }
+
+  static updateTask(index, newDesc) {
+    const todos = Store.getTasks();
+    todos[index].description = newDesc;
     Store.setTasks(todos);
     // repopulates list
     this.displayTasks();
