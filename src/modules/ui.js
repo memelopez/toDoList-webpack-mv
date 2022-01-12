@@ -1,5 +1,7 @@
 // user interface
 
+import Store from "./store";
+
 export default class UI {
   static addTask2list(task) {
     const list = document.querySelector('#task-list');
@@ -56,13 +58,15 @@ export default class UI {
     list.appendChild(item);
   }
 
-  static displayTasks(tasks) {
+  static displayTasks() {
     const list = document.querySelector('#task-list');
     list.innerHTML = '';
-    if (tasks.length === 0) {
-      this.addEmptyTodDoMessage();
+
+    const todos = Store.getTasks();
+    if (todos.length === 0) {
+      this.addEmptyToDoMessage();
     } else {
-      tasks.forEach((task) => this.addTask2list(task));
+      todos.forEach((task) => this.addTask2list(task));
     }
   }
 }
