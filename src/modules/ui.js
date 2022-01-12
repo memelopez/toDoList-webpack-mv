@@ -8,11 +8,11 @@ export default class UI {
     const list = document.querySelector('#task-list');
 
     const item = document.createElement('li'); // creates list item
-    item.className = 'app-item d-flex justify-content-around align-items-center px-2';
+    item.className = 'app-item d-flex align-items-center px-2';
 
     // creates div for normal view
     const divNormal = document.createElement('div');
-    divNormal.className = 'd-flex align-items-center normalView';
+    divNormal.className = 'd-flex flex-row justify-content-between align-items-center normalView';
 
     const checkbox = document.createElement('input'); // creates checkbox
     checkbox.setAttribute('type', 'checkbox');
@@ -22,25 +22,47 @@ export default class UI {
 
     const text = document.createElement('p'); // creates p
     text.textContent = task.description;
-    text.className = 'm-0 px-3 pb-1';
+    text.className = 'm-0 px-3';
     if (task.isCompleted === true) {
       text.classList.add('text-decoration-line-through');
     }
     divNormal.appendChild(text); // appends p to item
 
-    // Creates div for icons
-    const div4Icons = document.createElement('div');
-    div4Icons.className = 'ms-auto';
-
     const aEdit = document.createElement('a');
-    aEdit.className = 'edtIcn';
+    aEdit.className = 'edtIcn ms-auto';
     const iconEdit = document.createElement('i'); // creates edit icon
     iconEdit.className = 'fas fa-ellipsis-v p-2';
     aEdit.appendChild(iconEdit); // appends edit icon to anchor
-    div4Icons.appendChild(aEdit); // appends achor to item
+    divNormal.appendChild(aEdit); // appends achor to divNormal
 
-    item.appendChild(divNormal);
-    item.appendChild(div4Icons);
+    item.appendChild(divNormal);// -- appends divNormal to item
+
+    // Create div for edit view
+    const divEdit = document.createElement('div');
+    divEdit.className = 'd-none flex-row justify-content-between flex-fill align-items-center py-2 appItemEdit';
+
+    const inputEdit = document.createElement('input');
+    inputEdit.setAttribute('type', 'text');
+    inputEdit.className = 'form-control border-0 p-0 mx-2';
+    inputEdit.value = task.description;
+
+    divEdit.appendChild(inputEdit);
+
+    const aAccept = document.createElement('a');
+    aAccept.className = 'ms-auto acceptIcn';
+    const iconAccept = document.createElement('i'); // creates accept icon
+    iconAccept.className = 'fas fa-check-circle p-2';
+    aAccept.appendChild(iconAccept); // appends accept icon to anchor
+    divEdit.appendChild(aAccept); // appends accpet anchor to item
+
+    const aRemove = document.createElement('a');
+    aRemove.className = 'removeIcn';
+    const iconRemove = document.createElement('i'); // creates remove icon
+    iconRemove.className = 'fas fa-trash p-2';
+    aRemove.appendChild(iconRemove); // appends remove icon to anchor
+    divEdit.appendChild(aRemove); // appends remove anchor to item
+
+    item.appendChild(divEdit);// -- appends divEdit to item
 
     list.appendChild(item); // appends item to list
   }
@@ -80,5 +102,24 @@ export default class UI {
     Store.setTasks(todos);
     // repopulates list
     this.displayTasks();
+  }
+
+  static changeLiToEditMode(li) {
+    const lisChildren = li.children
+    // change clases of divs
+    const normalView = lisChildren[0];
+    let classesNV = normalView.className;
+    classesNV = classesNV.replace('d-flex', 'd-none');
+    normalView.className = classesNV;
+
+    const editView = lisChildren[1];
+    let classesE = editView.className;
+    classesE = classesE.replace('d-none', 'd-flex');
+    editView.className = classesE;
+
+    // sets focus con the input to edit
+    const inputEdit = editView.querySelector('input');
+    inputEdit.id = 'inputEdit';
+    inputEdit.focus();
   }
 }
