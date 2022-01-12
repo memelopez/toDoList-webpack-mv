@@ -27,6 +27,7 @@ document.querySelector('#addTask').addEventListener('submit', (e) => {
   document.querySelector('#taskDesc').value = '';
 });
 
+// Event: click anything on task-list
 document.querySelector('#task-list').addEventListener('click', (e) => {
   const classesIcn = e.target.parentElement.className;
   const classesArr = classesIcn.split(' ');
@@ -50,8 +51,7 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
   if (classesArr.indexOf('acceptIcn') !== -1) {
     const newDesc = document.querySelector('#inputEdit').value.trim();
     if (validateDescription(newDesc)) {
-      // UI.updateTask(index, newDesc);
-      console.log(newDesc);
+      UI.updateTask(index, newDesc);
     }
   }
 });
