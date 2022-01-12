@@ -11,4 +11,4 @@ tasks.push(task1);
 tasks.push(task2);
 
 // When content loads
-document.addEventListener('DOMContentLoaded', UI.displayTasks(tasks));
+document.addEventListener('DOMContentLoaded', UI.displayTasks());
