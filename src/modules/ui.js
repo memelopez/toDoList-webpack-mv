@@ -1,6 +1,7 @@
 // user interface
 
 import Store from "./store";
+import Task from "./task";
 
 export default class UI {
   static addTask2list(task) {
@@ -68,5 +69,16 @@ export default class UI {
     } else {
       todos.forEach((task) => this.addTask2list(task));
     }
+  }
+
+  static addTask(newDescrip) {
+    const todos = Store.getTasks();
+    const neo = new Task(newDescrip, todos.length);
+    todos.push(neo);
+    // update indexes
+    todos.forEach((todo, index) => todo.index = index);
+    Store.setTasks(todos);
+    // repopulates list
+    this.displayTasks();
   }
 }
