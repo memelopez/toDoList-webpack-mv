@@ -26,3 +26,25 @@ document.querySelector('#addTask').addEventListener('submit', (e) => {
   }
   document.querySelector('#taskDesc').value = '';
 });
+
+document.querySelector('#task-list').addEventListener('click', (e) => {
+  const classesIcn = e.target.parentElement.className;
+  const classesArr = classesIcn.split(' ');
+
+  const li = e.target.parentElement.parentElement.parentElement;
+  const ulList = document.querySelector('#task-list');
+  const nodes = Array.from(ulList.children);
+  const index = nodes.indexOf(li);
+
+  // when the three dots icon gets clicked
+  if (classesArr.indexOf('edtIcn') !== -1) {
+    UI.changeLiToEditMode(li);
+  }
+
+  // when the check icon gets clicked to REMOVE
+  if (classesArr.indexOf('removeIcn') !== -1) {
+    // UI.removeTask(index);
+    // UI.displayTasks();
+    console.log(classesIcn, ' ', index);
+  }
+});
