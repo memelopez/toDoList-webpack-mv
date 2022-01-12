@@ -43,8 +43,15 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
 
   // when the check icon gets clicked to REMOVE
   if (classesArr.indexOf('removeIcn') !== -1) {
-    // UI.removeTask(index);
-    // UI.displayTasks();
-    console.log(classesIcn, ' ', index);
+    UI.removeTask(index);
+  }
+
+  // when the the trash icon gets clicked to REMOVE
+  if (classesArr.indexOf('acceptIcn') !== -1) {
+    const newDesc = document.querySelector('#inputEdit').value.trim();
+    if (validateDescription(newDesc)) {
+      // UI.updateTask(index, newDesc);
+      console.log(newDesc);
+    }
   }
 });
