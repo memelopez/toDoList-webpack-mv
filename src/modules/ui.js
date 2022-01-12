@@ -122,4 +122,14 @@ export default class UI {
     inputEdit.id = 'inputEdit';
     inputEdit.focus();
   }
+
+  static removeTask(index) {
+    const todos = Store.getTasks();
+    todos.splice(index, 1);
+    // update indexes
+    todos.forEach((todo, index) => { todo.index = index; });
+    Store.setTasks(todos);
+    // repopulates list
+    this.displayTasks();
+  }
 }
