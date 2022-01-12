@@ -1,6 +1,5 @@
 // index.js
 import './styles.css';
-import Task from './modules/task';
 import UI from './modules/ui';
 import validateDescription from './modules/helpfulFunctions';
 

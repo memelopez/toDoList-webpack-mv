@@ -12,7 +12,7 @@ export default class UI {
 
     // creates div for normal view
     const divNormal = document.createElement('div');
-    divNormal.className = 'd-flex flex-row justify-content-between align-items-center normalView';
+    divNormal.className = 'd-flex flex-row justify-content-between align-items-center normal-view';
 
     const checkbox = document.createElement('input'); // creates checkbox
     checkbox.setAttribute('type', 'checkbox');
@@ -39,7 +39,7 @@ export default class UI {
 
     // Create div for edit view
     const divEdit = document.createElement('div');
-    divEdit.className = 'd-none flex-row justify-content-between flex-fill align-items-center py-2 appItemEdit';
+    divEdit.className = 'd-none flex-row justify-content-between flex-fill align-items-center py-2 app-item-edi';
 
     const inputEdit = document.createElement('input');
     inputEdit.setAttribute('type', 'text');
