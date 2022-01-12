@@ -2,7 +2,7 @@
 import './styles.css';
 import Task from './modules/task';
 import UI from './modules/ui';
-import { validateDescription } from './modules/helpfulFunctions';
+import validateDescription from './modules/helpfulFunctions';
 
 const task1 = new Task('wash dishes', 0);
 const task2 = new Task('clean room', 1);
