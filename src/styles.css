@@ -1,7 +1,44 @@
-.hello {
-  color: red;
+/* Styles */
+body {
+  background-color: #dcdcdc;
 }
 
-body {
-  background-color: bisque;
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:focus {
+  color: grey;
+  text-decoration: none;
+}
+
+.black-square {
+  background-color: black;
+  height: 40px;
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.app-item {
+  height: 50px;
+  background-color: white;
+  border-bottom: 1px lightgrey solid;
+}
+
+.bottom-btn {
+  height: 60px;
+  background-color: #f1f1f1;
+}
+
+a#clear-comp {
+  color: grey;
+}
+
+.no-to-dos {
+  color: #945047;
 }
