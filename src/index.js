@@ -1,7 +1,7 @@
 // index.js
 import './styles.css';
 import UI from './modules/ui';
-import validateDescription from './modules/helpfulFunctions';
+import { validateDescription } from './modules/helpfulFunctions';
 
 // When content loads
 document.addEventListener('DOMContentLoaded', UI.displayTasks());
@@ -74,4 +74,8 @@ document.querySelector('#task-list').addEventListener('change', (e) => {
 
     UI.taskCompleted(index, checkboxState);
   }
+});
+
+document.querySelector('#clear-comp').addEventListener('click', () => {
+  UI.clearCompleted();
 });
