@@ -1,11 +1,11 @@
 // helper functions
 
 // function to help validate input
-export default function validateDescription(text) {
+const validateDescription = (text) => {
   if (text === null || text === '') {
     return false;
   }
   return true;
-}
+};
 
-// export { validateDescription };
+export default validateDescription;
