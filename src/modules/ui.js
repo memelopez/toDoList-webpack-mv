@@ -2,6 +2,7 @@
 
 import Store from './store';
 import Task from './task';
+import taskCompleted from './checkboxes';
 
 export default class UI {
   static addTask2list(task) {
@@ -138,6 +139,12 @@ export default class UI {
     todos[index].description = newDesc;
     Store.setTasks(todos);
     // repopulates list
+    this.displayTasks();
+  }
+
+  static taskCompleted(index, checkboxState) {
+    taskCompleted(index, checkboxState);
+    // repopulates the todo list
     this.displayTasks();
   }
 }
