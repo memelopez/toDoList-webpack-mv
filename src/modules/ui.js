@@ -3,6 +3,7 @@
 import Store from './store';
 import Task from './task';
 import taskCompleted from './checkboxes';
+import { clearCompleted } from './helpfulFunctions';
 
 export default class UI {
   static addTask2list(task) {
@@ -98,7 +99,7 @@ export default class UI {
     const todos = Store.getTasks();
     const neo = new Task(newDescrip, todos.length);
     todos.push(neo);
-    // update indexes
+    // updates indexes
     todos.forEach((todo, index) => { todo.index = index; });
     Store.setTasks(todos);
     // repopulates list
@@ -127,9 +128,8 @@ export default class UI {
   static removeTask(index) {
     const todos = Store.getTasks();
     todos.splice(index, 1);
-    // update indexes
+    // updates indexes
     todos.forEach((todo, index) => { todo.index = index; });
-    Store.setTasks(todos);
     // repopulates list
     this.displayTasks();
   }
@@ -145,6 +145,11 @@ export default class UI {
   static taskCompleted(index, checkboxState) {
     taskCompleted(index, checkboxState);
     // repopulates the todo list
+    this.displayTasks();
+  }
+
+  static clearCompleted() {
+    clearCompleted();
     this.displayTasks();
   }
 }
