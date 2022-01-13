@@ -5,6 +5,10 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
+    ui: './src/modules/ui.js',
+    store: './src/modules/store.js',
+    task: './src/modules/task.js',
+    helpers: './src/modules/helpfulFunctions.js',
   },
   devtool: 'inline-source-map',
   plugins: [

@@ -1,7 +1,7 @@
 // index.js
 import './styles.css';
 import UI from './modules/ui';
-import validateDescription from './modules/helpfulFunctions';
+import { validateDescription } from './modules/helpfulFunctions';
 
 // When content loads
 document.addEventListener('DOMContentLoaded', UI.displayTasks());
@@ -10,6 +10,17 @@ document.addEventListener('DOMContentLoaded', UI.displayTasks());
 document.querySelector('#addTask').addEventListener('submit', (e) => {
   e.preventDefault();
 
+  // Get form values
+  const taskDescription = document.querySelector('#taskDesc').value.trim();
+  if (validateDescription(taskDescription)) {
+    // Add task
+    UI.addTask(taskDescription);
+  }
+  document.querySelector('#taskDesc').value = '';
+});
+
+// Event: when icon is clicked to add task
+document.querySelector('#clickEnterIcon').addEventListener('click', () => {
   // Get form values
   const taskDescription = document.querySelector('#taskDesc').value.trim();
   if (validateDescription(taskDescription)) {
@@ -46,4 +57,25 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
       UI.updateTask(index, newDesc);
     }
   }
+});
+
+// Event: when checkboxes are clicked
+document.querySelector('#task-list').addEventListener('change', (e) => {
+  e.preventDefault();
+  // checks if this is trigerring for the correct element
+  if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+    // Gets the state of the checked checkbox
+    const checkboxState = e.target.checked;
+
+    const ulList = document.querySelector('#task-list');
+    const itemChecked = e.target.parentElement.parentElement;
+    const nodes = Array.from(ulList.children);
+    const index = nodes.indexOf(itemChecked);
+
+    UI.taskCompleted(index, checkboxState);
+  }
+});
+
+document.querySelector('#clear-comp').addEventListener('click', () => {
+  UI.clearCompleted();
 });

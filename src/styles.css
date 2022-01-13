@@ -1,6 +1,6 @@
 /* Styles */
 body {
-  background-color: #dcdcdc;
+  background-color: #f8f8ff;
 }
 
 a {
@@ -14,7 +14,7 @@ a:focus {
 }
 
 .black-square {
-  background-color: black;
+  background-color: #062e63;
   height: 40px;
   width: 100%;
 }
@@ -26,8 +26,8 @@ a:focus {
 
 .app-item {
   height: 55px;
-  background-color: white;
-  border-bottom: 1px lightgrey solid;
+  background-color: #fff;
+  border-bottom: 2px #f0fff0 solid;
   width: 100%;
 }
 
@@ -38,11 +38,11 @@ a:focus {
 
 .bottom-btn {
   height: 60px;
-  background-color: #f1f1f1;
+  background-color: #f0fff0;
 }
 
 a#clear-comp {
-  color: grey;
+  color: #195892;
 }
 
 .no-to-dos {
@@ -55,4 +55,9 @@ a#clear-comp {
 
 #task-list {
   list-style: none;
+}
+
+#app-div {
+  box-shadow: 0 4px 8px 0 #9ac79a, 0 6px 20px 0 #9ac79a;
+  border: 1px #9ac79a solid;
 }
