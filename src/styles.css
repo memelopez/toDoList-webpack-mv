@@ -25,9 +25,15 @@ a:focus {
 }
 
 .app-item {
-  height: 50px;
+  height: 55px;
   background-color: white;
   border-bottom: 1px lightgrey solid;
+  width: 100%;
+}
+
+.app-item-edi {
+  height: 55px;
+  background-color: lightyellow;
 }
 
 .bottom-btn {
@@ -41,4 +47,12 @@ a#clear-comp {
 
 .no-to-dos {
   color: #945047;
+}
+
+.normal-view {
+  width: 100%;
+}
+
+#task-list {
+  list-style: none;
 }
