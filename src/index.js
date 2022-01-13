@@ -58,3 +58,20 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
     }
   }
 });
+
+// Event: when checkboxes are clicked
+document.querySelector('#task-list').addEventListener('change', (e) => {
+  e.preventDefault();
+  // checks if this is trigerring for the correct element
+  if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+    // Gets the state of the checked checkbox
+    const checkboxState = e.target.checked;
+
+    const ulList = document.querySelector('#task-list');
+    const itemChecked = e.target.parentElement.parentElement;
+    const nodes = Array.from(ulList.children);
+    const index = nodes.indexOf(itemChecked);
+
+    UI.taskCompleted(index, checkboxState);
+  }
+});
