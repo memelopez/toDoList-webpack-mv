@@ -130,6 +130,7 @@ export default class UI {
     todos.splice(index, 1);
     // updates indexes
     todos.forEach((todo, index) => { todo.index = index; });
+    Store.setTasks(todos);
     // repopulates list
     this.displayTasks();
   }
