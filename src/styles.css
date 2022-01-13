@@ -26,7 +26,7 @@ a:focus {
 
 .app-item {
   height: 55px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-bottom: 2px #f0fff0 solid;
   width: 100%;
 }
