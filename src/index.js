@@ -19,6 +19,17 @@ document.querySelector('#addTask').addEventListener('submit', (e) => {
   document.querySelector('#taskDesc').value = '';
 });
 
+// Event: when icon is clicked to add task
+document.querySelector('#clickEnterIcon').addEventListener('click', () => {
+  // Get form values
+  const taskDescription = document.querySelector('#taskDesc').value.trim();
+  if (validateDescription(taskDescription)) {
+    // Add task
+    UI.addTask(taskDescription);
+  }
+  document.querySelector('#taskDesc').value = '';
+});
+
 // Event: click anything on task-list
 document.querySelector('#task-list').addEventListener('click', (e) => {
   const classesIcn = e.target.parentElement.className;
