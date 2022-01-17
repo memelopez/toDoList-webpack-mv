@@ -40,17 +40,17 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
   const nodes = Array.from(ulList.children);
   const index = nodes.indexOf(li);
 
-  // when the three dots icon gets clicked
+  // Event: when the three dots icon gets clicked
   if (classesArr.indexOf('edtIcn') !== -1) {
     UI.changeLiToEditMode(li);
   }
 
-  // when the check icon gets clicked to REMOVE
+  // Event: when the check icon gets clicked to REMOVE
   if (classesArr.indexOf('removeIcn') !== -1) {
     UI.removeTask(index);
   }
 
-  // when the the trash icon gets clicked to REMOVE
+  // Event: when the the trash icon gets clicked to UPDATE
   if (classesArr.indexOf('acceptIcn') !== -1) {
     const newDesc = document.querySelector('#inputEdit').value.trim();
     if (validateDescription(newDesc)) {
@@ -61,7 +61,7 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
 
 // Event: when checkboxes are clicked
 document.querySelector('#task-list').addEventListener('change', (e) => {
-  e.preventDefault();
+
   // checks if this is trigerring for the correct element
   if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
     // Gets the state of the checked checkbox
