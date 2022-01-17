@@ -9,6 +9,8 @@ module.exports = {
     store: './src/modules/store.js',
     task: './src/modules/task.js',
     helpers: './src/modules/helpfulFunctions.js',
+    checkboxes: './src/modules/checkboxes.js',
+    returnsUncompleted: './src/modules/returnsUncompleted.js',
   },
   devtool: 'inline-source-map',
   plugins: [
