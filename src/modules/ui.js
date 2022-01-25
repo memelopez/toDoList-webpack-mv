@@ -168,10 +168,8 @@ export default class UI {
     childrenNV[1].textContent = newDesc;
   }
 
-  static taskCompleted(index, checkboxState) {
-    taskCompleted(index, checkboxState);
-    // repopulates the todo list
-    this.displayTasks();
+  static taskCompleted(index, value, pSib) {
+    taskCompleted(index, value, pSib);
   }
 
   static clearCompleted() {
