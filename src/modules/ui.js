@@ -3,7 +3,7 @@
 import Store from './store';
 import Task from './task';
 import taskCompleted from './checkboxes';
-import { clearCompleted } from './helpfulFunctions';
+import { clearCompleted, retsLiFromIndex } from './helpfulFunctions';
 
 export default class UI {
   static addTask2list(task) {
@@ -102,8 +102,12 @@ export default class UI {
     // updates indexes
     todos.forEach((todo, index) => { todo.index = index; });
     Store.setTasks(todos);
-    // repopulates list
-    this.displayTasks();
+    if (todos.length === 1) {
+      const list = document.querySelector('#task-list');
+      list.innerHTML = '';
+    }
+    // adds single task: neo
+    this.addTask2list(todos[todos.length - 1]);
   }
 
   static changeLiToEditMode(li) {
@@ -132,14 +136,36 @@ export default class UI {
     todos.forEach((todo, index) => { todo.index = index; });
     Store.setTasks(todos);
     li.remove();
+    if (todos.length === 0) {
+      this.addEmptyToDoMessage();
+    }
   }
 
   static updateTask(index, newDesc) {
     const todos = Store.getTasks();
     todos[index].description = newDesc;
     Store.setTasks(todos);
-    // repopulates list
-    this.displayTasks();
+    // changes li to normal view with new task description
+    this.changeLiToNormalView(index, newDesc);
+  }
+
+  static changeLiToNormalView(index, newDesc) {
+    const li = retsLiFromIndex(index);
+    const lisChildren = li.children;
+    // change clases of divs
+    const normalView = lisChildren[0];
+    let classesNV = normalView.className;
+    classesNV = classesNV.replace('d-none', 'd-flex');
+    normalView.className = classesNV;
+
+    const editView = lisChildren[1];
+    let classesE = editView.className;
+    classesE = classesE.replace('d-flex', 'd-none');
+    editView.className = classesE;
+
+    // change task desc
+    const childrenNV = normalView.children;
+    childrenNV[1].textContent = newDesc;
   }
 
   static taskCompleted(index, checkboxState) {
