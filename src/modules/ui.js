@@ -125,14 +125,13 @@ export default class UI {
     inputEdit.focus();
   }
 
-  static removeTask(index) {
+  static removeTask(index, li) {
     const todos = Store.getTasks();
     todos.splice(index, 1);
     // updates indexes
     todos.forEach((todo, index) => { todo.index = index; });
     Store.setTasks(todos);
-    // repopulates list
-    this.displayTasks();
+    li.remove();
   }
 
   static updateTask(index, newDesc) {

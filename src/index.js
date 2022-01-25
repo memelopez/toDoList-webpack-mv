@@ -47,7 +47,7 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
 
   // Event: when the check icon gets clicked to REMOVE
   if (classesArr.indexOf('removeIcn') !== -1) {
-    UI.removeTask(index);
+    UI.removeTask(index, li);
   }
 
   // Event: when the the trash icon gets clicked to UPDATE
