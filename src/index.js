@@ -59,7 +59,6 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
 
 // Event: when checkboxes are clicked
 document.querySelector('#task-list').addEventListener('change', (e) => {
-
   // checks if this is trigerring for the correct element
   if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
     // Gets the state of the checked checkbox
