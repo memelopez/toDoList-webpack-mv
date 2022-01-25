@@ -60,14 +60,16 @@ document.querySelector('#task-list').addEventListener('click', (e) => {
 // Event: when checkboxes are clicked
 document.querySelector('#task-list').addEventListener('change', (e) => {
   // checks if this is trigerring for the correct element
-  if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+  const checkedCheckbox = e.target;
+  if (checkedCheckbox.tagName === 'INPUT' && checkedCheckbox.type === 'checkbox') {
     // Gets the state of the checked checkbox
     const checkboxState = e.target.checked;
+    const pSib = checkedCheckbox.nextElementSibling;
 
     const itemChecked = e.target.parentElement.parentElement;
     const index = retsIndexInTaskList(itemChecked);
 
-    UI.taskCompleted(index, checkboxState);
+    UI.taskCompleted(index, checkboxState, pSib);
   }
 });
 
