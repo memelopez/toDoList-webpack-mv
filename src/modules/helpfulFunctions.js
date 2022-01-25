@@ -22,4 +22,19 @@ const clearCompleted = () => {
   Store.setTasks(uncompletedTasks);
 };
 
-export { validateDescription, clearCompleted };
+const retsIndexInTaskList = (li) => {
+  const ulList = document.querySelector('#task-list');
+  const nodes = Array.from(ulList.children);
+  const index = nodes.indexOf(li);
+  return index;
+};
+
+const retsLiFromIndex = (index) => {
+  const ulList = document.querySelector('#task-list');
+  const nodes = Array.from(ulList.children);
+  return nodes[index];
+};
+
+export {
+  validateDescription, clearCompleted, retsIndexInTaskList, retsLiFromIndex,
+};
