@@ -27,6 +27,14 @@ const retsIndexInTaskList = (li) => {
   const nodes = Array.from(ulList.children);
   const index = nodes.indexOf(li);
   return index;
-}
+};
 
-export { validateDescription, clearCompleted, retsIndexInTaskList };
+const retsLiFromIndex = (index) => {
+  const ulList = document.querySelector('#task-list');
+  const nodes = Array.from(ulList.children);
+  return nodes[index];
+};
+
+export {
+  validateDescription, clearCompleted, retsIndexInTaskList, retsLiFromIndex,
+};
