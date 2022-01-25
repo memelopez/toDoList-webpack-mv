@@ -11,7 +11,6 @@ const taskCompleted = (position2chage, value, pSib) => {
   task2modify.isCompleted = value;
   toDos[position2chage] = task2modify;
 
-
   // Set items to storage
   Store.setTasks(toDos);
 
