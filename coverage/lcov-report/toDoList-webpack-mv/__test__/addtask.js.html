@@ -116,7 +116,8 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -169,67 +170,69 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const { globaldocument } = require('../dynamic');
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { globaldocument } = require('../dynamic');
 const arrayList = [];
 const forList = globaldocument.getElementById('task');
 const addTaskInput = globaldocument.getElementById('input-list');
 &nbsp;
 function <span class="fstat-no" title="function not covered" >addInfoStore(</span>arrayList) {
-<span class="cstat-no" title="statement not covered" >    window.localStorage.setItem('tasks', JSON.stringify(arrayList));</span>
+<span class="cstat-no" title="statement not covered" >  window.localStorage.setItem('tasks', JSON.stringify(arrayList));</span>
 }
 &nbsp;
 function addElementsToPageFrom(arrayList) {
-    forList.innerHTML = ' ';
-    arrayList.forEach((task) =&gt; {
-        const div = document.createElement('div');
-        div.className = 'task';
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (task.completed) {
-<span class="cstat-no" title="statement not covered" >            div.className = 'task done';</span>
-        }
-        div.setAttribute('data-id', task.id);
-        const checkbox = document.createElement('input');
-        checkbox.setAttribute('type', 'checkbox');
-        checkbox.className = 'checked';
-        checkbox.appendChild(document.createTextNode(''));
-        div.appendChild(checkbox);
-        const desc = document.createElement('input');
-        desc.setAttribute('value', task.title);
-        desc.className = 'desc';
-        div.appendChild(desc);
-        const span = document.createElement('span');
-        span.className = 'del';
-        span.id = 'delete';
-        span.appendChild(document.createTextNode('Delete'));
-        div.appendChild(span);
-        desc.addEventListener('change', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
-<span class="cstat-no" title="statement not covered" >            task.title = e.target.value;</span>
-<span class="cstat-no" title="statement not covered" >            addInfoStore(arrayList);</span>
-        });
-        forList.appendChild(div);
+  forList.innerHTML = ' ';
+  arrayList.forEach((task) =&gt; {
+    const div = document.createElement('div');
+    div.className = 'task';
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (task.completed) {
+<span class="cstat-no" title="statement not covered" >      div.className = 'task done';</span>
+    }
+    div.setAttribute('data-id', task.id);
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.className = 'checked';
+    checkbox.appendChild(document.createTextNode(''));
+    div.appendChild(checkbox);
+    const desc = document.createElement('input');
+    desc.setAttribute('value', task.title);
+    desc.className = 'desc';
+    div.appendChild(desc);
+    const span = document.createElement('span');
+    span.className = 'del';
+    span.id = 'delete';
+    span.appendChild(document.createTextNode('Delete'));
+    div.appendChild(span);
+    desc.addEventListener('change', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+<span class="cstat-no" title="statement not covered" >      task.title = e.target.value;</span>
+<span class="cstat-no" title="statement not covered" >      addInfoStore(arrayList);</span>
     });
-    return addTaskInput.value;
+    forList.appendChild(div);
+  });
+  return addTaskInput.value;
 }
 &nbsp;
 function <span class="fstat-no" title="function not covered" >addTaskToArray(</span>) {
-    const task = <span class="cstat-no" title="statement not covered" >{</span>
-        id: Date.now(),
-        title: ' ',
-        completed: false,
-        index: arrayList.length,
-    };
-<span class="cstat-no" title="statement not covered" >    arrayList.push(task);</span>
-<span class="cstat-no" title="statement not covered" >    addElementsToPageFrom(arrayList);</span>
-<span class="cstat-no" title="statement not covered" >    addInfoStore(arrayList);</span>
+  const task = <span class="cstat-no" title="statement not covered" >{</span>
+    id: Date.now(),
+    title: ' ',
+    completed: false,
+    index: arrayList.length,
+  };
+<span class="cstat-no" title="statement not covered" >  arrayList.push(task);</span>
+<span class="cstat-no" title="statement not covered" >  addElementsToPageFrom(arrayList);</span>
+<span class="cstat-no" title="statement not covered" >  addInfoStore(arrayList);</span>
 }
 exports.addElementsToPageFrom = addElementsToPageFrom;
-exports.addTaskToArray = addTaskToArray;</pre></td></tr></table></pre>
+exports.addTaskToArray = addTaskToArray;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jan 28 2022 00:24:41 GMT+0500 (Узбекистан, стандартное время)
+                at Fri Jan 28 2022 01:00:24 GMT+0500 (Узбекистан, стандартное время)
             </div>
         <script src="../../prettify.js"></script>
         <script>

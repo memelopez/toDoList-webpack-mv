@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643311481673" clover="3.2.0">
-  <project timestamp="1643311481673" name="All files">
-    <metrics statements="81" coveredstatements="70" conditionals="4" coveredconditionals="2" methods="11" coveredmethods="7" elements="96" coveredelements="79" complexity="0" loc="81" ncloc="81" packages="2" files="3" classes="3"/>
+<coverage generated="1643313624405" clover="3.2.0">
+  <project timestamp="1643313624406" name="All files">
+    <metrics statements="80" coveredstatements="69" conditionals="4" coveredconditionals="2" methods="11" coveredmethods="7" elements="95" coveredelements="78" complexity="0" loc="80" ncloc="80" packages="2" files="3" classes="3"/>
     <package name="toDoList-webpack-mv">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="dynamic.js" path="C:\Users\mukha\toDoList-webpack-mv\dynamic.js">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
       </file>
     </package>
     <package name="toDoList-webpack-mv.__test__">

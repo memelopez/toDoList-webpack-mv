@@ -1,4 +1,3 @@
-17
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const domHtml = new JSDOM(`<!DOCTYPE html>
