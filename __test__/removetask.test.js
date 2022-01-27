@@ -1,5 +1,5 @@
 const { globaldocument } = require('../dynamic');
-const { deleteTaskWith, addElementsToPageFrom } = require('./removetask.js');
+const { deleteTaskWith, addElementsToPageFrom } = require('./removetask');
 
 describe('Delete one task by id from task array, local storage, and DOM', () => {
   const newArray = [];
