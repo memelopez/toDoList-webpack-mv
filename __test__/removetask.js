@@ -1,4 +1,5 @@
 const { globaldocument } = require('../dynamic');
+
 const forList = globaldocument.getElementById('task');
 
 function addInfoStore(arrayList) {

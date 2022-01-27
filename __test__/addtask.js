@@ -1,4 +1,5 @@
 const { globaldocument } = require('../dynamic');
+
 const arrayList = [];
 const forList = globaldocument.getElementById('task');
 const addTaskInput = globaldocument.getElementById('input-list');
