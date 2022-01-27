@@ -39,6 +39,6 @@
     "webpack-dev-server": "^4.2.1"
   },
   "dependencies": {
-    "jsdom": "^16.7.0"
+    "jsdom": "^19.0.0"
   }
 }
