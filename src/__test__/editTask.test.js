@@ -14,7 +14,7 @@ describe('Edit task desription: ', () => {
   });
 
   test('should return true when index and newDesc are valid', () => {
-    expect(editTask('mow lawn', 2)).toBeTruthy(); // changes the li in the DOM 
+    expect(editTask('mow lawn', 2)).toBeTruthy(); // changes the li in the DOM
   });
 
   test('should return true when the newDesc from previous test was updated in the DOM.', () => {
