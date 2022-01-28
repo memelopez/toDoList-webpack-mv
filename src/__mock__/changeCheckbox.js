@@ -1,36 +1,35 @@
 // __mock__/changeCheckbox
-import { globaldocument } from "../../dynamic";
-import Store from "./store";
+import { globaldocument } from '../../dynamic';
+import Store from './store';
 
 const changeCheckbox = (index, value) => {
-    const todos = Store.getTasksWith3Tasks();
+  const todos = Store.getTasksWith3Tasks();
 
-    if (index >= 0 && index < todos.length) {
-        const item2change = todos[index];
-        item2change.isCompleted = value;
+  if (index >= 0 && index < todos.length) {
+    const item2change = todos[index];
+    item2change.isCompleted = value;
 
-        // now we changed the newDesc in DOM
-        const tasklist = globaldocument.getElementById('task-list');
-        const li2change = tasklist.children[index];
-        const checkboxToChange = li2change.children[0];
-        checkboxToChange.checked = value;
-
-        return Store.setTasks(); // Setting the tasks in the mockec store class always retunrs TRUE
-    } 
-    return 'Index must be between 0 and stored tasks length.';
-
-};
-
-const verifyCheckboxStatus = (index, value) => {
+    // now we changed the newDesc in DOM
     const tasklist = globaldocument.getElementById('task-list');
     const li2change = tasklist.children[index];
     const checkboxToChange = li2change.children[0];
-    const checkboxValue = checkboxToChange.checked;
+    checkboxToChange.checked = value;
 
-    if(checkboxValue === value ) {
-        return true;
-    }
-    return false;
+    return Store.setTasks(); // Setting the tasks in the mockec store class always retunrs TRUE
+  }
+  return 'Index must be between 0 and stored tasks length.';
+};
+
+const verifyCheckboxStatus = (index, value) => {
+  const tasklist = globaldocument.getElementById('task-list');
+  const li2change = tasklist.children[index];
+  const checkboxToChange = li2change.children[0];
+  const checkboxValue = checkboxToChange.checked;
+
+  if (checkboxValue === value) {
+    return true;
+  }
+  return false;
 };
 
 export { changeCheckbox, verifyCheckboxStatus };
