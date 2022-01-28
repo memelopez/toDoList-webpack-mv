@@ -1,4 +1,4 @@
-// __tests__/deleteTask
+// __mock__/deleteTask
 import { globaldocument } from '../../dynamic';
 import Store from './store';
 
