@@ -1,6 +1,7 @@
 // __tests__/addTask.test
 import deleteTask from '../__mock__/deleteTask';
-import { addNewTask, getAmountOfTaskFromDOM } from '../__mock__/addTask';
+import { getAmountOfTaskFromDOM } from '../__mock__/addTask';
+import { inicialize3tasks } from '../__mock__/editTask';
 
 describe('Delete task from DOM list and storage:', () => {
   test('test should return false when index is less than zero', () => {
@@ -11,13 +12,12 @@ describe('Delete task from DOM list and storage:', () => {
     expect(deleteTask(3)).toBeFalsy();
   });
 
+  inicialize3tasks(); // in the DOM
   test("test should return true when index is from 0 to length of stored ToDo's", () => {
-    addNewTask('do laudry');
-    addNewTask('walk dog');
     expect(deleteTask(1)).toBeTruthy();
   });
 
   test('test should return the amount of tasks in DOM.', () => {
-    expect(getAmountOfTaskFromDOM()).toBe(1);
+    expect(getAmountOfTaskFromDOM()).toBe(2);
   });
 });

@@ -10,10 +10,10 @@ const addNewTask = (description) => {
     const todos = Store.getEmptyTasks();
     const neo = new Task(description, todos.length);
     todos.push(neo);
-    Store.setTasks();
-    const tasklist = globaldocument.getElementById('task');
 
-    const div = document.createElement('div');
+    const tasklist = globaldocument.getElementById('task-list');
+
+    const li = document.createElement('li');
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = neo.isCompleted;
@@ -22,18 +22,18 @@ const addNewTask = (description) => {
     const span = document.createElement('span');
     span.textContent = 'delete';
 
-    div.appendChild(checkbox);
-    div.appendChild(p);
-    div.appendChild(span);
-    tasklist.appendChild(div);
+    li.appendChild(checkbox);
+    li.appendChild(p);
+    li.appendChild(span);
+    tasklist.appendChild(li);
 
-    return true;
+    return Store.setTasks();
   }
   return false;
 };
 
 const getAmountOfTaskFromDOM = () => {
-  const tasklist = globaldocument.getElementById('task');
+  const tasklist = globaldocument.getElementById('task-list');
   const taskListLength = tasklist.children.length;
   return taskListLength;
 };

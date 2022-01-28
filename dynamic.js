@@ -15,14 +15,18 @@ const domHtml = new JSDOM(`<!DOCTYPE html>
 </head>
 <body>
     <div>
-        <div>To Do</div>
-        <div class="input">
-            <input id="input-list"  type="text">
-            <input type="submit"  value="Add task">
+        <div id="forTitle"></div>
+        <div id="forForm">
+            <form action="submit" id="addTask">
+                <input type="text" id="taskDesc">
+            </form>
         </div>
-        <div id="task">
+        <div id="forList">
+            <ul id="task-list"></ul>
         </div>
-        <button class="deletebtn" type="button">Clear All Completed </button>
+        <div id="forBtn">
+            <a href="#" id="clearCompleted"></a>
+        </div>
     </div>
 </body>
 </html>`, { url: 'https://localhost/' });
