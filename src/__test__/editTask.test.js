@@ -3,7 +3,7 @@
 import { editTask, inicialize3tasks, verifyUpdatedTaskDesc } from '../__mock__/editTask';
 
 describe('Edit task desription: ', () => {
-  inicialize3tasks();
+  inicialize3tasks(); // puts 3 tasks in DOM
 
   test('should return error message when new task description is invalid', () => {
     expect(editTask('', 0)).toBe('New task decription must not be empty.');
@@ -14,7 +14,7 @@ describe('Edit task desription: ', () => {
   });
 
   test('should return true when index and newDesc are valid', () => {
-    expect(editTask('mow lawn', 2)).toBeTruthy();
+    expect(editTask('mow lawn', 2)).toBeTruthy(); // changes the li in the DOM 
   });
 
   test('should return true when the newDesc from previous test was updated in the DOM.', () => {
